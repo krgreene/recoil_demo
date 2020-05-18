@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// State management with Recoil.
+// Recoil is an experimental state management library for React.
 
-function App() {
+import React from 'react';
+import './App.css';
+import { RecoilRoot } from 'recoil'
+import styled from 'styled-components'
+
+import Counter from './components/counter'
+import Monitor from './components/monitor'
+import EditPower from './components/edit'
+
+import sclogo from './graphics/sclogo.png'
+
+const Section = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `
+
+// Main application
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RecoilRoot>
+      <Section className={"App"}>
+        <h1>Managing State with Recoil</h1>
+        <img src={sclogo} alt='styled components logo' width={'70px'} href={'https://styled-components.com/'} />
+        <p>Styled with styled components</p>
+        <Counter />
+        <Monitor />
+        <EditPower />
+      </Section>
+    </RecoilRoot>
   );
 }
-
-export default App;
